@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class Profit {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user for the sale price and deductions
+        System.out.print("Enter the sale price of the home: ");
+        double salePrice = scanner.nextDouble();
+
+        System.out.print("Enter the mortgage payoff amount: ");
+        double mortgagePayoff = scanner.nextDouble();
+
+        System.out.print("Enter the realtor's commission: ");
+        double realtorCommission = scanner.nextDouble();
+
+        System.out.print("Enter the title insurance fee: ");
+        double titleInsuranceFee = scanner.nextDouble();
+
+        System.out.print("Enter the transfer tax amount: ");
+        double transferTax = scanner.nextDouble();
+
+        // Calculate the profit
+        double profit = calculateProfit(salePrice, mortgagePayoff, realtorCommission, titleInsuranceFee, transferTax);
+
+        // Display the profit
+        System.out.printf("La ganancia de la venta de la casa es: %.2f\n", profit);
+    }
+
+    // Method to calculate the profit
+    public static double calculateProfit(double salePrice, double mortgagePayoff, double realtorCommission, double titleInsuranceFee, double transferTax) {
+        return salePrice - (mortgagePayoff + realtorCommission + titleInsuranceFee + transferTax);
+    }
+}
