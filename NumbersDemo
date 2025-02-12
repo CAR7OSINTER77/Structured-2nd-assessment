@@ -3,33 +3,47 @@ import java.util.Scanner;
 public class NumbersDemo {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        boolean repeat;
 
-        // Ask the user for two numbers
-        System.out.print("Entre el primer numero: ");
-        int number1 = scanner.nextInt();
-        System.out.print("Entre el segundo numero: ");
-        int number2 = scanner.nextInt();
+        do {
+            // Ask the user for two numbers
+            System.out.print("Entre el primer numero: ");
+            int number1 = scanner.nextInt();
+            System.out.print("Entre el segundo numero: ");
+            int number2 = scanner.nextInt();
 
-        // Perform calculations and display results
-        displayTwiceTheNumber(number1);
-        displayTwiceTheNumber(number2);
+            // Perform calculations and display results
+            performCalculations(number1);
+            performCalculations(number2);
 
-        displayNumberPlusFive(number1);
-        displayNumberPlusFive(number2);
+            // Ask the user if they want to input another pair of numbers
+            System.out.print("Desea introducir otros dos numeros? (si/no): ");
+            String response = scanner.next().trim().toLowerCase();
+            repeat = response.equals("si");
 
-        displayNumberSquared(number1);
-        displayNumberSquared(number2);
+        } while (repeat);
+
+        scanner.close();
     }
 
-    // Method to display twice the number
+    public static void performCalculations(int number) {
+        displayTwiceTheNumber(number);
+        displayNumberPlusFive(number);
+        displayNumberSquared(number);
+    }
+
     public static void displayTwiceTheNumber(int number) {
         System.out.println("Dos veces " + number + " es " + (number * 2));
     }
 
-    // Method to display the number plus five
     public static void displayNumberPlusFive(int number) {
-        System.out.println("El numero " + number + " Mas cinco es " + (number + 5));
+        System.out.println("El numero " + number + " mas cinco es " + (number + 5));
     }
+
+    public static void displayNumberSquared(int number) {
+        System.out.println("El numero " + number + " al cuadrado es " + (number * number));
+    }
+}
 
     // Method to display the number squared
     public static void displayNumberSquared(int number) {
